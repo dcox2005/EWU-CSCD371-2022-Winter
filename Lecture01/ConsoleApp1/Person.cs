@@ -1,8 +1,13 @@
 ﻿
 namespace Lecture01
 {
-    internal class Person
+    public class Person
     {
-
+        Array<>
+        public bool Login(string userName, string password)
+        {
+            return (password == "YouKilledMyF@ther");
+            
+        }
     }
 }
