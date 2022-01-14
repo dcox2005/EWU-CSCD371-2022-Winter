@@ -16,8 +16,6 @@ namespace Lecture1.Tests
             UserName = "Inigo.Montoya";
         }
 
-
-
         [TestMethod]
         public void Login_GivenValidUserNameAndPassword_Success()
         {
@@ -41,7 +39,16 @@ namespace Lecture1.Tests
             bool result = Person.Login(UserName, Password);
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void Login_EnsureNotNull_Success()
+        {
+            string? userName = null;        //adding the ? tells the system that null is acceptable
+            Assert.IsNull(userName);
+        }
+
     }
+
 }
 
 
