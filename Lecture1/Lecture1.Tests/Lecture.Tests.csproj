@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Lecture1\Lecture1.csproj" />
+    <ProjectReference Include="..\Lecture1\Lecture.csproj" />
   </ItemGroup>
 
 </Project>
