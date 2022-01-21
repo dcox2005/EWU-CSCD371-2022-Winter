@@ -1,7 +1,7 @@
 ﻿namespace Lecture;
 
 
-public class Person
+public class Person : Thing, ISavable
 {
 
     public Person(string firstName, string lastName) : 
@@ -18,8 +18,23 @@ public class Person
         Name = name;
     }
 
+    public string ToText() => $"{nameof(Name)}: {Name}; {nameof(DateOfBirth)}: {DateOfBirth}";
+
+    //public int Age
+    //{
+    //    get
+    //    {
+    //        return (DateOfBirth - DateTime.Now).TotalDays/365;
+    //    }
+    //}
+
+    public DateOnly DateOfBirth { get; set; }
+
+    public string? MiddleName { get; set; }
+
+
     private string? _Name;
-    public string Name
+    public override string Name
     {
         get => _Name!;
 

@@ -16,6 +16,7 @@ public class PersonTests
     }
 
     [TestMethod]
+    [Ignore("There must be a comment in all ignored tests.")]
     [ExpectedException(typeof(ArgumentNullException))]
     public void Name_GivenNameIsNull_ThrowException()
     {
