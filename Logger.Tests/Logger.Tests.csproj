@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>10.0</LangVersion>
     <IsPackable>false</IsPackable>
+	<Nullable>enable</Nullable>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <ItemGroup>
