@@ -10,7 +10,7 @@ namespace Logger
             FilePath = filePath;
         }
 
-        public string FilePath { get; }
+        public string FilePath { get; set; }
 
 
         public override void Log(LogLevel logLevel, string message)
