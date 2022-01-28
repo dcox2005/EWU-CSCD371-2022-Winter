@@ -1,4 +1,5 @@
-﻿namespace Lecture.Tests;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+namespace Lecture.Tests;
 
 [TestClass]
 public class PersonTests
@@ -16,6 +17,34 @@ public class PersonTests
     {
         Person person = new ("Inigo Montoya");
         person.Name = null!;
+    }
+
+    [TestMethod]
+    public void Equality_TwoStrings_AreEqual()
+    {
+        string datetime = DateTime.Now.ToString();
+
+        Assert.IsTrue($"Inigo Montoya {datetime} " == $"Inigo Montoya {datetime} ");
+    }
+
+    [TestMethod]
+    public void Equality_TwoEqualPersons_AreEqual()
+    {
+        string datetime = DateTime.Now.ToString();
+        Person person1 = new($"Inigo Montoya {datetime} ");
+        Person person2 = new($"Inigo Montoya {datetime} ");
+
+        Assert.IsTrue(person1 == person2);
+    }
+
+    [TestMethod]
+    public void Equality_TwoEqualPersons_AreEqual()
+    {
+        string datetime = DateTime.Now.ToString();
+        Person person1 = new($"Inigo Montoya {datetime} ");
+        Person person2 = new($"Inigo Montoya {datetime} ");
+
+        Assert.IsTrue(person1 == person2);
     }
 }
 

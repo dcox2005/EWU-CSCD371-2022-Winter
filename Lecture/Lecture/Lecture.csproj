@@ -10,11 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Arc.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\CommonAssembly.cs" Link="CommonAssembly.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="Arc.cs" />
   </ItemGroup>
 
   <ItemGroup>

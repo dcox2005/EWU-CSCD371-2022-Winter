@@ -2,5 +2,7 @@
 public interface ISavable
 {
     string? ToText();
+
+    Stream ToStream();
 }
 

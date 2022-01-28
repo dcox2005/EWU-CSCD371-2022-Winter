@@ -1,13 +1,13 @@
 ﻿namespace Lecture;
 
 
-public class Person : Thing, ISavable
+public record class Person : ISavable
 {
 
     public Person(string firstName, string lastName) : 
         this($"{firstName} {lastName}") {}
 
-    public Person(string name) : base(name)
+    public Person(string name)
     {
         Initialize(name);
     }
@@ -18,7 +18,7 @@ public class Person : Thing, ISavable
         Name = name;
     }
 
-    public override string? ToText() => $"{nameof(Name)}: {Name}; {nameof(DateOfBirth)}: {DateOfBirth}";
+    public string? ToText() => $"{nameof(Name)}: {Name}; {nameof(DateOfBirth)}: {DateOfBirth}";
 
     //public int Age
     //{
@@ -35,7 +35,7 @@ public class Person : Thing, ISavable
 
 
     private string? _Name;
-    public override string Name
+    public string Name
     {
         get => _Name!;
 
