@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
-public interface IWriteLine
+public interface IWriteJoke
 {
-    public void WriteLine(string message)
+    public void WriteJoke(string message)
     {
         Console.WriteLine(message);
     }

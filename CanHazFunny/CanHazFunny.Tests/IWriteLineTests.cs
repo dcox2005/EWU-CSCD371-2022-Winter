@@ -7,7 +7,7 @@ namespace CanHazFunny.Tests;
 public class IWriteLineTests
 {
     [TestMethod]
-    public void MyTestMethod()
+    public void WriteJoke()
     {
 
     }
