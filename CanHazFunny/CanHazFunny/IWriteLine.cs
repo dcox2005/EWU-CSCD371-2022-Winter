@@ -8,5 +8,8 @@ namespace CanHazFunny;
 
 public interface IWriteLine
 {
-    public void WriteLine(string message);
+    public void WriteLine(string message)
+    {
+        Console.WriteLine(message);
+    }
 }

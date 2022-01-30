@@ -15,7 +15,7 @@ public class IJokeServiceTests
 
 
     [TestMethod]
-    public void MyTestMethod()
+    public void GetJoke_DoesItReturnTheRightJoke_Success()
     {
         Mock<IJokeService> mock = new();
         mock.SetupSequence(funny => funny.GetJoke()).Returns("I have a funny joke for you");
