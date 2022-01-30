@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 namespace CanHazFunny;
 
 public class Jester
-{
-}
+    {
+    }
+

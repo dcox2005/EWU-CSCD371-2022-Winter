@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
-public interface IWriteLine
-{
+    public interface IWriteLine
+    {
     public void WriteLine(string message);
 }
