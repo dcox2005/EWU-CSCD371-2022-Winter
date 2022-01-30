@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    public interface IJokeService
-    {
+namespace CanHazFunny;
+
+public interface IJokeService
+{
+    public string GetJoke();
 }
