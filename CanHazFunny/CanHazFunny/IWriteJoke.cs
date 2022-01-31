@@ -8,9 +8,8 @@ namespace CanHazFunny;
 
 public interface IWriteJoke
 {
-    /*public void WriteJoke(string message)
+    public virtual void JokeWriter(string message)
     {
         Console.WriteLine(message);
-    }*/
-    public void WriteJokeDisplay(string message);
+    }
 }

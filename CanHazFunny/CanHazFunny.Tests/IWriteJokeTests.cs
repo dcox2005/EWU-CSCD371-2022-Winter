@@ -27,7 +27,7 @@ public class IWriteJokeTests
             Console.SetOut(stringWriter);
             var joke = "Who's There?";
             IWriteJoke mock = new MockJoke();
-            mock.WriteJoke(joke);
+            mock.JokeWriter(joke);
             Assert.AreEqual<string>(joke + "\r\n", stringWriter.ToString());
         }
     }

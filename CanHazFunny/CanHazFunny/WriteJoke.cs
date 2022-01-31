@@ -8,7 +8,7 @@ namespace CanHazFunny;
 
 public class WriteJoke: IWriteJoke
 {
-    public void WriteJokeDisplay(string message)
+    public void JokeWriter(string message)
     {
         Console.WriteLine(message);
     }
