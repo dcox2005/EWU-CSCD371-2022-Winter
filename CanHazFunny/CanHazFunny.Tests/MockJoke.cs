@@ -1,4 +1,7 @@
-﻿namespace CanHazFunny.Tests;
+﻿using System;
+using System.IO;
+
+namespace CanHazFunny.Tests;
 
 public class MockJoke : IJokeService, IWriteJoke
 {
@@ -7,8 +10,4 @@ public class MockJoke : IJokeService, IWriteJoke
         return "I have a funny knock knock joke for you";
     }
 
-    public void WriteJoke(string message)
-    {
-        throw new System.NotImplementedException();
-    }
 }
