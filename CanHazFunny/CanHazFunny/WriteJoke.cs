@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
-public class Jester
+public class WriteJoke: IWriteJoke
 {
-    public void TellJoke()
+    public void WriteJokeDisplay(string message)
     {
-
+        Console.WriteLine(message);
     }
 }
 
