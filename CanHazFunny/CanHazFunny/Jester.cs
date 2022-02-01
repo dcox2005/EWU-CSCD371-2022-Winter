@@ -19,6 +19,8 @@ public class Jester : IJokeService, IWriteJoke
             res = _JokeService.GetJoke();
         } while (res.Contains("Chuck Norris"));
         return res;
+
+        //look to catch "ChuckNorris" and other varients that ignore case
     }
 
     public Jester(JokeService jokeService, WriteJoke writeJoke)
