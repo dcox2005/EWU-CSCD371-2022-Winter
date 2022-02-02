@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace CanHazFunny.Tests;
 
@@ -10,4 +9,8 @@ public class MockJoke : IJokeService, IWriteJoke
         return "I have a funny knock knock joke for you";
     }
 
+    public void JokeWriter(string message)
+    {
+        Console.WriteLine(message);
+    }
 }
