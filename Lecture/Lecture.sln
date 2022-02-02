@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CommonAssembly.cs = CommonAssembly.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandlingProgram", "ExceptionHandlingProgram\ExceptionHandlingProgram.csproj", "{11D5C0A6-31DA-4ECD-A122-C2228BB2F3AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{313E705F-3767-420F-8DB2-A82B12CD8D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313E705F-3767-420F-8DB2-A82B12CD8D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313E705F-3767-420F-8DB2-A82B12CD8D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D5C0A6-31DA-4ECD-A122-C2228BB2F3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D5C0A6-31DA-4ECD-A122-C2228BB2F3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D5C0A6-31DA-4ECD-A122-C2228BB2F3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D5C0A6-31DA-4ECD-A122-C2228BB2F3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
