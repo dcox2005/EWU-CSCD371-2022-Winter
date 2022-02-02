@@ -24,7 +24,5 @@ class Program
         }
 
         Console.WriteLine("You chose not to have any more fun. Good bye");
-        //Feel free to use your own setup here - this is just provided as an example
-        //new Jester(new SomeReallyCoolOutputClass(), new SomeJokeServiceClass()).TellJoke();
     }
 }

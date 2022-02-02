@@ -6,21 +6,10 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
-public class Jester //: IJokeService, IWriteJoke
+public class Jester
 {
     private IJokeService _JokeService;
     private IWriteJoke _WriteJoke;
-
-    /*public string GetJoke()
-    {
-        string res = "";
-        do
-        {
-            res = _JokeService.GetJoke();
-        } while (res.Contains("Chuck Norris"));
-        return res;
-
-    }*/
 
     public Jester(IJokeService jokeService, IWriteJoke writeJoke)
     {
@@ -32,13 +21,11 @@ public class Jester //: IJokeService, IWriteJoke
 
     public void TellJoke()
     {
-        //string res = GetJoke();
-        //_WriteJoke.JokeWriter(res);
         string res = "";
         do
         {
             res = _JokeService.GetJoke();
-        } while (res.Contains("Chuck Norris"));
+        } while (res.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase) || res.Contains("ChuckNorris", StringComparison.OrdinalIgnoreCase));
 
         _WriteJoke.JokeWriter(res);
     }
