@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny;
 
-public class Jester : IJokeService, IWriteJoke
+public class Jester //: IJokeService, IWriteJoke
 {
-    private JokeService _JokeService;
-    private WriteJoke _WriteJoke;
+    private IJokeService _JokeService;
+    private IWriteJoke _WriteJoke;
 
-    public string GetJoke()
+    /*public string GetJoke()
     {
         string res = "";
         do
@@ -20,10 +20,9 @@ public class Jester : IJokeService, IWriteJoke
         } while (res.Contains("Chuck Norris"));
         return res;
 
-        //look to catch "ChuckNorris" and other varients that ignore case
-    }
+    }*/
 
-    public Jester(JokeService jokeService, WriteJoke writeJoke)
+    public Jester(IJokeService jokeService, IWriteJoke writeJoke)
     {
         if (jokeService is null || writeJoke is null) throw new ArgumentNullException();
 
@@ -33,7 +32,14 @@ public class Jester : IJokeService, IWriteJoke
 
     public void TellJoke()
     {
-        string res = GetJoke();
+        //string res = GetJoke();
+        //_WriteJoke.JokeWriter(res);
+        string res = "";
+        do
+        {
+            res = _JokeService.GetJoke();
+        } while (res.Contains("Chuck Norris"));
+
         _WriteJoke.JokeWriter(res);
     }
 }
