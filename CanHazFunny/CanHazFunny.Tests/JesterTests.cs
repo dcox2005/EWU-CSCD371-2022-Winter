@@ -43,4 +43,22 @@ public class JesterTests
         Assert.IsFalse(res.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase) || res.Contains("ChuckNorris", StringComparison.OrdinalIgnoreCase));
     }
 
+    [TestMethod]
+    public void TellJoke_RetrievesJokeProperly_Success()
+    {
+        MockJokeWriter writer = new();
+        MockJoke myJoke = new();
+        Jester myFunnyMan = new(myJoke, writer);
+
+        myFunnyMan.TellJoke();
+
+        Assert.AreEqual(writer.Output, myJoke.GetJoke());
+    }
+
+    [TestMethod]
+    public void TellJoke_ChuckNorrisNotAllowed_Success()
+    {
+
+    }
+
 }
