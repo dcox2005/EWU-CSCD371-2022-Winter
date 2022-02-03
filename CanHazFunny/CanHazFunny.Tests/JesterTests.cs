@@ -12,7 +12,7 @@ public class JesterTests
     [ExpectedException(typeof(ArgumentNullException))]
     public void Constructor_JokerServicePassedInIsNull_ArgumentNullException()
     {
-        Jester myFunnyMan = new(jokeService: null!, new WriteJoke());
+        Jester myFunnyMan = new(null!, new WriteJoke());
     }
 
     [TestMethod]
@@ -32,22 +32,13 @@ public class JesterTests
     [TestMethod]
     public void TellJoke_RetrievesJoke_Success()
     {
-        Mock<IJokeService> service = new Mock<IJokeService>();
-        Mock<IWriteJoke> writer = new Mock<IWriteJoke>();
+        MockJokeWriter writer = new();
+        MockJoke myJoke = new ();
+        Jester myFunnyMan = new(myJoke, writer);
 
-        // Jester myFunnyMan = new Jester(service, writer);
-        Mock<Jester> myFunnyMan = new(new Mock<IJokeService>(), new Mock<IWriteJoke>());
+        myFunnyMan.TellJoke();
 
-        //using (StringWriter stringWriter = new StringWriter())
-        //{         
-        //    Console.SetOut(stringWriter);
-        //    Mock<Jester> mock = new();
-        //    mock.SetupSequence(funny => funny.TellJoke());
-        //    var joke = "Who's There?";
-        //    //IWriteJoke mock = new MockJoke();
-        //    //mock.JokeWriter(joke);
-        //    Assert.AreEqual<string>(joke + "\r\n", stringWriter.ToString());
-        //}
+        Assert.AreEqual(writer.Output, myJoke.GetJoke());
     }
 
 }
