@@ -32,22 +32,15 @@ public class JesterTests
     [TestMethod]
     public void TellJoke_RetrievesJoke_Success()
     {
-        Mock<IJokeService> service = new Mock<IJokeService>();
-        Mock<IWriteJoke> writer = new Mock<IWriteJoke>();
+        IJokeService jokeService = new JokeService();
 
-        // Jester myFunnyMan = new Jester(service, writer);
-        Mock<Jester> myFunnyMan = new(new Mock<IJokeService>(), new Mock<IWriteJoke>());
+        string res = "";
+        do
+        {
+            res = jokeService.GetJoke();
+        } while (res.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase) || res.Contains("ChuckNorris", StringComparison.OrdinalIgnoreCase));
 
-        //using (StringWriter stringWriter = new StringWriter())
-        //{         
-        //    Console.SetOut(stringWriter);
-        //    Mock<Jester> mock = new();
-        //    mock.SetupSequence(funny => funny.TellJoke());
-        //    var joke = "Who's There?";
-        //    //IWriteJoke mock = new MockJoke();
-        //    //mock.JokeWriter(joke);
-        //    Assert.AreEqual<string>(joke + "\r\n", stringWriter.ToString());
-        //}
+        Assert.IsFalse(res.Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase) || res.Contains("ChuckNorris", StringComparison.OrdinalIgnoreCase));
     }
 
 }
