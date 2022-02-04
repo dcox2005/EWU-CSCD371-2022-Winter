@@ -31,4 +31,12 @@ public class IWriteJokeTests
             Assert.AreEqual<string>(joke + "\r\n", stringWriter.ToString());
         }
     }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentNullException))]
+    public void JokeWriter_InputNull_ThrowsException()
+    {
+        WriteJoke writer = new();
+        writer.JokeWriter(null!);
+    }
 }
