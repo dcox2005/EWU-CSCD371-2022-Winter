@@ -58,7 +58,16 @@ public class JesterTests
     [TestMethod]
     public void TellJoke_ChuckNorrisNotAllowed_Success()
     {
+        MockJokeWriter writer = new();
+        MockJoke myJoke = new();
+        Jester myFunnyMan = new(myJoke, writer);
 
+        StringWriter sw = new();
+        Console.SetOut(sw);
+
+        myFunnyMan.TellJoke();
+
+        Assert.IsFalse(sw.ToString().Contains("Chuck Norris", StringComparison.OrdinalIgnoreCase) || sw.ToString().Contains("ChuckNorris", StringComparison.OrdinalIgnoreCase));
     }
 
 }
