@@ -5,6 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Justification = "<Testing Class can use Underscores for naming>")]
-[assembly: SuppressMessage("Naming", "INTL0003:Methods PascalCase", Justification = "<Testing Class can use Underscores for naming>")]
 [assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "Don't know how to implement a resource table")]

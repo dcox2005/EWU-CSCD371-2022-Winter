@@ -15,6 +15,7 @@ public class IWriteJokeTests
         Console.SetOut(stringWriter);
         Console.WriteLine("Knock Knock!");
         Assert.AreEqual<string>("Knock Knock!\r\n", stringWriter.ToString());
+        stringWriter.Dispose();
     }
 
     //Extra Credit Part One attempted here
