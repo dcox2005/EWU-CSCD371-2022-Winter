@@ -6,6 +6,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        //string[] linesToWrite = new string[]
+        //{
+        //    "Would you like to hear a joke? (Y or Yes, anything else No)",
+        //    "You choose no joke, good bye",
+        //    "Would you like to hear another?",
+        //    "You chose not to have any more fun. Good bye"
+        //};
         Console.WriteLine("Would you like to hear a joke? (Y or Yes, anything else No)");
         string? response = Console.ReadLine();
         if (response is null)

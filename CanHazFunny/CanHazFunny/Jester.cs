@@ -8,20 +8,27 @@ namespace CanHazFunny;
 
 public class Jester
 {
-    private IJokeService _JokeService;
-    private IWriteJoke _WriteJoke;
+    readonly private IJokeService _JokeService;
+    readonly private IWriteJoke _WriteJoke;
 
     public Jester(IJokeService jokeService, IWriteJoke writeJoke)
     {
-        if (jokeService is null || writeJoke is null) throw new ArgumentNullException();
+        if (jokeService is null)
+        {
+            throw new ArgumentNullException(nameof(jokeService));
+        }
 
+        if (writeJoke is null)
+        {
+            throw new ArgumentNullException(nameof(writeJoke));
+        }
         _JokeService = jokeService;
         _WriteJoke = writeJoke;
     }
 
     public void TellJoke()
     {
-        string res = "";
+        string res;
         do
         {
             res = _JokeService.GetJoke();

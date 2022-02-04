@@ -9,11 +9,11 @@ public class JokeService : IJokeService
 
     public string GetJoke()
     {
-        //Uri jokeURL = new("https://geek-jokes.sameerkumar.website/api");
-        //string joke = HttpClient.GetStringAsync(jokeURL).Result;
-        //return joke;
-
-        string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
+        Uri jokeURL = new("https://geek-jokes.sameerkumar.website/api");
+        string joke = HttpClient.GetStringAsync(jokeURL).Result;
         return joke;
+
+        //string joke = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api").Result;
+        //return joke;
     }
 }
