@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GenericsHomework;
 
-public class Node
+class Program
 {
-
+    static void Main(string[] args)
+    {
+    }
 }
