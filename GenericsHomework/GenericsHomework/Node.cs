@@ -5,7 +5,7 @@ namespace GenericsHomework;
 
 public class Node<TValue>
 {
-    private TValue? Value;
+    private TValue? _Value;
     public Node<TValue> Next
     {
         get;
@@ -15,18 +15,18 @@ public class Node<TValue>
     public Node(TValue value)
     {
         Next = this;
-        Value = value;
+        _Value = value;
     }
 
     public override string? ToString()
     {
-        if (Value is null)
+        if (_Value is null)
         {
             return null;
         }
         else
         {
-            return Value.ToString();
+            return _Value.ToString();
         }
     }
 
@@ -67,7 +67,7 @@ public class Node<TValue>
         Node<TValue> currentNode = this;
         do
         {
-            if (currentNode.Value is null)
+            if (currentNode._Value is null)
             {
                 if (valueToFind is null)
                 {
@@ -78,7 +78,7 @@ public class Node<TValue>
                     currentNode = currentNode.Next;
                 }
             }
-            else if (currentNode.Value.Equals(valueToFind))
+            else if (currentNode._Value.Equals(valueToFind))
             {
                 return true;
             }
