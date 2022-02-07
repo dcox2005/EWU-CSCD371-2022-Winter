@@ -103,17 +103,18 @@ public class NodeTests
     public void Clear_CheckThatGarbageCollectionRemovedOld_Success()
     {
         Node<string> myNode = createNodeList();
-        Process currentProcess = Process.GetCurrentProcess();
-        long fullListMemory = currentProcess.PrivateMemorySize64;
-
+        long fullListMemory = GC.GetTotalMemory(false);
+        
         myNode = myNode.Clear();
 
         GC.Collect();
         GC.WaitForPendingFinalizers();
 
-        long clearedListMemory = currentProcess.PrivateMemorySize64;
+        long clearedListMemory = GC.GetTotalMemory(false);
+        //Console.WriteLine(fullListMemory);
+        //Console.WriteLine(clearedListMemory);
         Assert.AreNotEqual(clearedListMemory, fullListMemory);
-        //Assert.IsTrue(clearedListMemory < fullListMemory);
+        Assert.IsTrue(clearedListMemory < fullListMemory);
     }
 
     [TestMethod]
