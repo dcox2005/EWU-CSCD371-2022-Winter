@@ -44,22 +44,23 @@ public class Node<TType>
     public Node<TType> Clear()
     {
         /*
-         *  Simply having this node loop back on itself will not work.
-         *  GC might still see that there are references to the objects from another object
-         *  and it may delay collection.
-         *  Set each object to reference itself and GC knows to clean that up.
+         *  Simply having this node loop back on itself will work.
+         *  GC will see that the only node with any reference to it within the code
+         *  base will be the main node that called the function.
          */
-
-        Node<TType> currentNode = this.Next;
-        Node<TType> previous;
-        while (currentNode != this)
-        {
-            previous = currentNode;
-            currentNode = currentNode.Next;
-            previous.Next = previous;
-        }
-        this.Next = currentNode;
+        this.Next = this;
         return this;
+
+        //Node<TType> currentNode = this.Next;
+        //Node<TType> previous;
+        //while (currentNode != this)
+        //{
+        //    previous = currentNode;
+        //    currentNode = currentNode.Next;
+        //    previous.Next = previous;
+        //}
+        //this.Next = currentNode;
+        //return this;
     }
 
     public bool Exists(TType valueToFind)
