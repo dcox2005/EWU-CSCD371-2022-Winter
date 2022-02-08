@@ -5,7 +5,7 @@ namespace GenericsHomework;
 
 public class Node<TValue>
 {
-    private TValue? _Value;
+    private readonly TValue? _Value;
     public Node<TValue> Next
     {
         get;

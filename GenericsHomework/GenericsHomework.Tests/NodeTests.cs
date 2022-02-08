@@ -75,7 +75,7 @@ public class NodeTests
     [TestMethod]
     public void Append_MultipleNewNodesCreatedUsingNextProperty_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         Assert.AreEqual("Second Value", myNode.Next.ToString());
         Assert.AreEqual("Third Value", myNode.Next.Next.ToString());
         Assert.AreEqual("Fourth Value", myNode.Next.Next.Next.ToString());
@@ -84,7 +84,7 @@ public class NodeTests
     [TestMethod]
     public void Append_MultipleNewNodesLoopAroundWorks_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         Assert.AreEqual("Value", myNode.Next.Next.Next.Next.ToString());
         Assert.AreEqual(myNode, myNode.Next.Next.Next.Next);
 
@@ -93,7 +93,7 @@ public class NodeTests
     [TestMethod]
     public void Clear_RemovesAllButTheNodeUsedToStart_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         myNode = myNode.Clear();
 
         Assert.AreEqual(myNode, myNode.Next);
@@ -102,10 +102,10 @@ public class NodeTests
     [TestMethod]
     public void Clear_CheckThatGarbageCollectionRemovedOld_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         long fullListMemory = GC.GetTotalMemory(false);
         
-        myNode = myNode.Clear();
+        _ = myNode.Clear();
 
         GC.Collect();
         GC.WaitForPendingFinalizers();
@@ -120,7 +120,7 @@ public class NodeTests
     [TestMethod]
     public void Exists_DoesValueExist_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         myNode.Append(null!);
         Assert.IsTrue(myNode.Exists("Value"));
         Assert.IsTrue(myNode.Exists("Second Value"));
@@ -132,7 +132,7 @@ public class NodeTests
     [TestMethod]
     public void Exists_DoesValueNotExist_Success()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         Assert.IsFalse(myNode.Exists(null!));
         Assert.IsFalse(myNode.Exists("Fifth Value"));
         Assert.IsFalse(myNode.Exists("Sixth Value"));
@@ -142,7 +142,7 @@ public class NodeTests
     [ExpectedException(typeof(InvalidOperationException))]
     public void Append_ThrowsExceptionForAddingSameValueTwice_ThrowsException()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         myNode.Append("Value");
     }
 
@@ -150,11 +150,11 @@ public class NodeTests
     [ExpectedException(typeof(InvalidOperationException))]
     public void Append_ThrowsExceptionForAddingSameValueTwiceDifferentValue_ThrowsException()
     {
-        Node<string> myNode = createNodeList();
+        Node<string> myNode = CreateNodeList();
         myNode.Append("Third Value");
     }
 
-    private static Node<string> createNodeList()
+    private static Node<string> CreateNodeList()
     {
         Node<string> myNode = new("Value");
         myNode.Append("Second Value");
