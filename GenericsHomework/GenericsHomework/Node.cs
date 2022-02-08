@@ -3,16 +3,16 @@ using System;
 
 namespace GenericsHomework;
 
-public class Node<TValue>
+public class Node<TType>
 {
-    private readonly TValue? _Value;
-    public Node<TValue> Next
+    private readonly TType? _Value;
+    public Node<TType> Next
     {
         get;
         private set;
     }
 
-    public Node(TValue value)
+    public Node(TType value)
     {
         Next = this;
         _Value = value;
@@ -30,18 +30,18 @@ public class Node<TValue>
         }
     }
 
-    public void Append(TValue newValue)
+    public void Append(TType newValue)
     {
         if (this.Exists(newValue))
         {
             throw new InvalidOperationException($"The {nameof(newValue)} already exists in the list.");
         }
-        Node<TValue> newNode = new(newValue);
+        Node<TType> newNode = new(newValue);
         newNode.Next = this.Next;
         this.Next = newNode;
     }
 
-    public Node<TValue> Clear()
+    public Node<TType> Clear()
     {
         /*
          *  Simply having this node loop back on itself will not work.
@@ -50,8 +50,8 @@ public class Node<TValue>
          *  Set each object to reference itself and GC knows to clean that up.
          */
 
-        Node<TValue> currentNode = this.Next;
-        Node<TValue> previous;
+        Node<TType> currentNode = this.Next;
+        Node<TType> previous;
         while (currentNode != this)
         {
             previous = currentNode;
@@ -62,9 +62,9 @@ public class Node<TValue>
         return this;
     }
 
-    public bool Exists(TValue valueToFind)
+    public bool Exists(TType valueToFind)
     {
-        Node<TValue> currentNode = this;
+        Node<TType> currentNode = this;
         do
         {
             if (currentNode._Value is null)
