@@ -13,6 +13,11 @@ public class NodeTests
         int value = 42;
         Node<int> myNode = new(value);
         Assert.IsNotNull(myNode);
+        string nextValue = "string";
+        Node<string> myNode2 = new(nextValue);
+        Assert.IsNotNull(myNode2);
+        Node<double> node3 = new(23.43);
+        Assert.IsNotNull(node3);
     }
 
     [TestMethod]
