@@ -5,4 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "Not really sure how to fix this with a resource")]
+//[assembly: SuppressMessage("Globalization", Justification = "Not really sure how to fix this with a resource")]
