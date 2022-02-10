@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace GenericsHomework;
 
@@ -50,17 +49,6 @@ public class Node<TType>
          */
         this.Next = this;
         return this;
-
-        //Node<TType> currentNode = this.Next;
-        //Node<TType> previous;
-        //while (currentNode != this)
-        //{
-        //    previous = currentNode;
-        //    currentNode = currentNode.Next;
-        //    previous.Next = previous;
-        //}
-        //this.Next = currentNode;
-        //return this;
     }
 
     public bool Exists(TType valueToFind)

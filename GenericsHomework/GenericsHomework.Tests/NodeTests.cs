@@ -116,8 +116,6 @@ public class NodeTests
         GC.WaitForPendingFinalizers();
 
         long clearedListMemory = GC.GetTotalMemory(false);
-        //Console.WriteLine(fullListMemory);
-        //Console.WriteLine(clearedListMemory);
         Assert.AreNotEqual(clearedListMemory, fullListMemory);
         Assert.IsTrue(clearedListMemory < fullListMemory);
     }
@@ -168,5 +166,4 @@ public class NodeTests
 
         return myNode;
     }
-
 }
