@@ -12,12 +12,21 @@ public class NodeTests
     {
         int value = 42;
         Node<int> myNode = new(value);
-        Assert.IsNotNull(myNode);
         string nextValue = "string";
         Node<string> myNode2 = new(nextValue);
+        Node<double> myNode3 = new(23.43);
+        Node<long> myNode4 = new(9223372036854775);
+        Node<bool> myNode5 = new(true);
+        Node<char> myNode6 = new('H');
+        Node<float> myNode7 = new(3.14f);
+
+        Assert.IsNotNull(myNode);
         Assert.IsNotNull(myNode2);
-        Node<double> node3 = new(23.43);
-        Assert.IsNotNull(node3);
+        Assert.IsNotNull(myNode3);
+        Assert.IsNotNull(myNode4);
+        Assert.IsNotNull(myNode5);
+        Assert.IsNotNull(myNode6);
+        Assert.IsNotNull(myNode7);
     }
 
     [TestMethod]
@@ -36,7 +45,7 @@ public class NodeTests
     }
 
     [TestMethod]
-    public void ToString_ValueIsNullShouldReturnNull_Succes()
+    public void ToString_ValueIsNullShouldReturnNull_Success()
     {
         Node<string?> myNode = new(null);
         Assert.AreEqual(null, myNode.ToString());
@@ -48,10 +57,14 @@ public class NodeTests
         int value = 42;
         Node<int> myNode = new(value);
         Assert.AreEqual("42", myNode.ToString());
+
+        bool val = false;
+        Node<bool> myNode2 = new(val);
+        Assert.AreEqual("False", myNode2.ToString());
     }
 
     [TestMethod]
-    public void Constructor_SettingNextNodeToEqualTheNodeCreated_Succes()
+    public void Constructor_SettingNextNodeToEqualTheNodeCreated_Success()
     {
         Node<string> myNode = new("Value");
         Assert.AreEqual(myNode, myNode.Next);
@@ -77,6 +90,17 @@ public class NodeTests
         Assert.AreEqual("Second Value", myNode.Next.Next.ToString());
     }
 
+    //helper method
+    private static Node<string> CreateNodeList()
+    {
+        Node<string> myNode = new("Value");
+        myNode.Append("Second Value");
+        myNode.Next.Append("Third Value");
+        myNode.Next.Next.Append("Fourth Value");
+
+        return myNode;
+    }
+
     [TestMethod]
     public void Append_MultipleNewNodesCreatedUsingNextProperty_Success()
     {
@@ -92,7 +116,6 @@ public class NodeTests
         Node<string> myNode = CreateNodeList();
         Assert.AreEqual("Value", myNode.Next.Next.Next.Next.ToString());
         Assert.AreEqual(myNode, myNode.Next.Next.Next.Next);
-
     }
 
     [TestMethod]
@@ -155,15 +178,5 @@ public class NodeTests
     {
         Node<string> myNode = CreateNodeList();
         myNode.Append("Third Value");
-    }
-
-    private static Node<string> CreateNodeList()
-    {
-        Node<string> myNode = new("Value");
-        myNode.Append("Second Value");
-        myNode.Next.Append("Third Value");
-        myNode.Next.Next.Append("Fourth Value");
-
-        return myNode;
     }
 }
