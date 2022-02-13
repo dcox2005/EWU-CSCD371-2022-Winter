@@ -1,6 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	  <OutputType>Exe</OutputType>
+	  <TargetFramework>net6.0</TargetFramework>
+	  <LangVersion>10.0</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+	  <EnableNETAnalyzers>true</EnableNETAnalyzers>
+	  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -10,5 +17,10 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IntelliTect.Analyzers" Version="0.1.8" />
+	</ItemGroup>
+	
 
 </Project>
