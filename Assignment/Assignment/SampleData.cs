@@ -7,7 +7,7 @@ namespace Assignment
     {
         // 1.
         public IEnumerable<string> CsvRows => throw new NotImplementedException();
-
+        
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows() 
             => throw new NotImplementedException();
