@@ -29,6 +29,7 @@ namespace Assignment
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
             IEnumerable<IPerson> people) => throw new NotImplementedException();
+       
         public SampleData(string path)
         {
             CsvRows = CSVParser(path);
