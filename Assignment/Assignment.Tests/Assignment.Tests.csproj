@@ -19,7 +19,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!--<PackageReference Include="IntelliTect.Analyzers" Version="0.1.8" />-->
+	  <ProjectReference Include="..\Assignment.Interfaces\Assignment.Interfaces.csproj" />
+	  <ProjectReference Include="..\Assignment\Assignment.csproj" />
 	</ItemGroup>
 
 
