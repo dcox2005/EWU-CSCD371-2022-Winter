@@ -19,7 +19,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="IntelliTect.Analyzers" Version="0.1.8" />
+		<!--<PackageReference Include="IntelliTect.Analyzers" Version="0.1.8" />-->
 	</ItemGroup>
 	
 
