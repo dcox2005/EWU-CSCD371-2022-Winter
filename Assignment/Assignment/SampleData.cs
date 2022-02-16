@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Assignment
 {
     public class SampleData : ISampleData
     {
+
         // 1.
-        public IEnumerable<string> CsvRows => throw new NotImplementedException();
+        public IEnumerable<string> CsvRows { get; }
 
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
@@ -26,5 +29,14 @@ namespace Assignment
         // 6.
         public string GetAggregateListOfStatesGivenPeopleCollection(
             IEnumerable<IPerson> people) => throw new NotImplementedException();
+        public SampleData(string path)
+        {
+            CsvRows = CSVParser(path);
+        }
+
+        private IEnumerable<string> CSVParser(string path)
+        {
+            return File.ReadAllLines(path).Skip(1);
+        }
     }
 }
