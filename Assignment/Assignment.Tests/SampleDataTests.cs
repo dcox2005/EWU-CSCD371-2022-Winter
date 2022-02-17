@@ -47,7 +47,7 @@ public class SampleDataTests
         string row1 = data.CsvRows.First();
         string expectedRow1 = "1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577";
         Assert.AreEqual(expectedRow1, row1);
-        
+
         string row37 = data.CsvRows.ElementAt(36);  //zero indexing
         string expectedRow37 = "37,Westley,Mesnard,wmesnard10@amazonaws.com,075 Pierstorff Road,Manchester,NH,66946";
         Assert.AreEqual(expectedRow37, row37);
@@ -92,5 +92,13 @@ public class SampleDataTests
         }
 
         Assert.IsTrue(isSorted);
+    }
+
+    [TestMethod]
+    public void Part3_MethodReturnsUniqueCommaSeperatedList()
+    {
+        SampleData data = createSampleDataObject();
+        string res = "AL,AZ,CA,DC,FL,GA,IN,KS,LA,MD,MN,MO,MT,NC,NE,NH,NV,NY,OR,PA,SC,TN,TX,UT,VA,WA,WV";
+        Assert.AreEqual(res, data.GetAggregateSortedListOfStatesUsingCsvRows());
     }
 }
