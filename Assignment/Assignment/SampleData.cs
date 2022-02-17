@@ -19,6 +19,7 @@ namespace Assignment
             {
                 states.Add(person.Split(",")[6]);
             }
+            //states.Sort();
             IEnumerable<string> uniqueStates = states.Distinct();
             return uniqueStates;
         }    

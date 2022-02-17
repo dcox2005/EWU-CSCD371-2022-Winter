@@ -63,9 +63,18 @@ public class SampleDataTests
         SampleData data = createSampleDataObject();
         IEnumerable<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows();
         int count = Enumerable.Count(states);
-        //Assert.AreEqual(52, count);
         Assert.IsTrue(count > 0);
         Assert.IsTrue(count < 50);
         Assert.AreEqual(27, count);
+    }
+
+    [TestMethod]
+    public void Part2_MethodReturnsSortedListOfStates_SuccessIsSorted()
+    {
+        SampleData data = createSampleDataObject();
+        IEnumerable<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows();
+        
+        //bool isSorted = states.Zip(states.Skip(1), (a, b) => a. a).All(x => x);
+        //Assert.IsTrue(isSorted);
     }
 }
