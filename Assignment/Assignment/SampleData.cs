@@ -19,14 +19,18 @@ namespace Assignment
             {
                 states.Add(person.Split(",")[6]);
             }
-            //states.Sort();
+            states.Sort();
             IEnumerable<string> uniqueStates = states.Distinct();
             return uniqueStates;
         }    
 
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
-            => throw new NotImplementedException();
+        {
+            IEnumerable<string> states = GetUniqueSortedListOfStatesGivenCsvRows();
+            states.ToArray();
+            return string.Join(", ", states);
+        }
 
         // 4.
         public IEnumerable<IPerson> People => throw new NotImplementedException();
