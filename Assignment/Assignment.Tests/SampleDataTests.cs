@@ -73,8 +73,24 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         IEnumerable<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows();
-        
-        //bool isSorted = states.Zip(states.Skip(1), (a, b) => a. a).All(x => x);
-        //Assert.IsTrue(isSorted);
+
+        bool isSorted = true;
+        string prevState = "";
+        foreach (string state in states)
+        {
+            if (state.Equals(states.ElementAt(0)))
+            { 
+                prevState = state;
+            }
+            else
+            {
+                if(prevState.CompareTo(state) > 0)
+                {
+                    isSorted = false;
+                }
+            }
+        }
+
+        Assert.IsTrue(isSorted);
     }
 }
