@@ -14,14 +14,13 @@ namespace Assignment
         // 2.
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
-            List<string> states = new List<string>();
-            foreach (string person in CsvRows)
-            {
-                states.Add(person.Split(",")[6]);
-            }
-            states.Sort();
-            IEnumerable<string> uniqueStates = states.Distinct();
-            return uniqueStates;
+            List<string> states = CsvRows.
+                Select(person => person.Split(',')[6]).
+                Distinct().
+                OrderBy(state => state).
+                ToList();
+
+            return states;
         }    
 
         // 3.
