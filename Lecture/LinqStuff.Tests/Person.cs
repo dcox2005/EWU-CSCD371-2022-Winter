@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace LinqStuff.Tests
 {
-    public class Person
+    public record class Person(
+        string FirstName, string LastName, string MiddleName, string Age)
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public string Age { get; set; }
-
     }
 }

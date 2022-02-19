@@ -4,7 +4,7 @@ namespace Generics.Tests;
 public class Container<T>
    where T : notnull
 {
-    T Value
+    public T Value
     {
         get
         {
@@ -20,21 +20,19 @@ public class Container<T>
         }
 
     }
-    private Container<T> Root { get; set; }
+    private Container<T>? Root { get; set; }
 
     Container(T value)
     {
         Value = value;
     }
-
-    public class NodeCollectionFactory<T>
+    public class NodeCollectionFactory<TValue> where TValue : notnull
     {
-        public Container<T> CreateNewNodeCollection(T item)
+        public Container<TValue> CreateNewNodeCollection(TValue item)
         {
-            return new Container<T>(item);
+            return new Container<TValue>(item);
         }
     }
-
 }
 
 [TestClass]
@@ -44,10 +42,10 @@ public class MoreGenericStuff
     [TestMethod]
     public void MyTestMethod()
     {
-        Container<int?> container = null;
-        if(container == null)
-            {
+        Container<int>? container = null;
+        if(container is null)
+        {
 
-            }
+        }
     }
 }

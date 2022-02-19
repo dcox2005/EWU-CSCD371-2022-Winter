@@ -1,6 +1,6 @@
 ﻿namespace LambdaExpressions
 {
-    public delegate double MathOperation<TLeft>(TLeft left, double right, double more);
+    public delegate double MathOperation<TLeft>(in TLeft left, in double right, in double output);
 
     public class MathQueue
     {
@@ -13,17 +13,16 @@
 
         public void Queue(int left, double right, MathOperation<double> operation)
         {
-            double result = operation(left, right, 0);
+            InternalQueue.Add(( (left, right) => operation(left, right, right), left, right));
         }
 
         public double Calculate()
         {
             double result = 0;
             foreach(
-                (Func<int, double, double> Operation, int Left, double Right) item in InternalQueue)
+                (Func<int, double, double> Operation, int Left, double Right) in InternalQueue)
             {
-
-                result += item.Operation(item.Left, item.Right);
+                result += Operation(Left, Right);
             }
             return result;
         }

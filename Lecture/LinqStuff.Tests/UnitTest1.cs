@@ -5,10 +5,18 @@ namespace LinqStuff.Tests
     // Mark was here
     public static class IEnumerableEx
     {
-        static public IEnumerable<T> Filter<T>(this IEnumerable<T> items /* lambda expression */)
+        static public IEnumerable<T> Filter<T>(
+            this IEnumerable<T> items,  
+            Predicate<T> filterExpression)
         {
-            // System.Reflection.Assembly.GetExecutingAssembly().Location
-            return null;
+            // Intentionally not using Where() linq standard query operator
+            foreach(var item in items)
+            {
+                if(filterExpression(item))
+                {
+                    yield return item;
+                }
+            }
         }
     }
 
@@ -16,6 +24,16 @@ namespace LinqStuff.Tests
     [TestClass]
     public class UnitTest1
     {
+        [TestMethod]
+        public void CheckDataFileExists()
+        {
+            string fullPath =
+                Path.Combine(
+                    Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)!,
+                    "Data", "Data.txt");
+            Assert.IsTrue(File.Exists(fullPath));
+                
+        }
 
         [DeploymentItem("Data\\Data.txt")]
         [TestMethod]
