@@ -180,5 +180,36 @@ public class SampleDataTests
         Assert.AreEqual<int>(0, results.Count());
     }
 
+    [TestMethod]
+    public void Part5_FiltersEmail_SuccessReturnsProperNames()
+    {
+        SampleData data = createSampleDataObject();
+        Predicate<string> email = email => email.Contains("posterous");
+        IEnumerable<(string FirstName, string LastName)> person1 = data.FilterByEmailAddress(email);
+        Assert.AreEqual<string>("Editha", person1.First().FirstName);
+        Assert.AreEqual<string>("Loseke", person1.First().LastName);
+        Assert.AreEqual<string>("Editha", person1.Last().FirstName);
+        Assert.AreEqual<string>("Loseke", person1.Last().LastName);
+
+        email = email => email.Contains("cbsnews");
+        IEnumerable<(string FirstName, string LastName)> person2 = data.FilterByEmailAddress(email);
+        Assert.AreEqual<string>("Jedd", person2.First().FirstName);
+        Assert.AreEqual<string>("Boissier", person2.First().LastName);
+        Assert.AreEqual<string>("Jedd", person2.Last().FirstName);
+        Assert.AreEqual<string>("Boissier", person2.Last().LastName);
+
+        email = email => email.Contains("@c");
+        IEnumerable<(string FirstName, string LastName)> people = data.FilterByEmailAddress(email);
+        Assert.AreEqual<int>(4, people.Count());
+        Assert.AreEqual<string>("Jedd", people.First().FirstName);
+        Assert.AreEqual<string>("Boissier", people.First().LastName);
+        Assert.AreEqual<string>("Gabrielle", people.ElementAt(1).FirstName);
+        Assert.AreEqual<string>("Vitler", people.ElementAt(1).LastName);
+        Assert.AreEqual<string>("Scarface", people.ElementAt(2).FirstName);
+        Assert.AreEqual<string>("Dennington", people.ElementAt(2).LastName);
+        Assert.AreEqual<string>("Claudell", people.Last().FirstName);
+        Assert.AreEqual<string>("Leathe", people.Last().LastName);
+    }
+
 
 }
