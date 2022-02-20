@@ -112,7 +112,7 @@ public class SampleDataTests
     }
 
     [TestMethod]
-    public void Part4_PeopleAreEnteredCorrectly_SuccesAllFieldsPass()
+    public void Part4_PeopleAreEnteredCorrectly_SuccessAllFieldsPass()
     {
         SampleData data = createSampleDataObject();
         IPerson person = data.People.
@@ -128,7 +128,7 @@ public class SampleDataTests
     }
 
     [TestMethod]
-    public void Part4_PeopleAreEnteredCorrectlyDifferentPerson_SuccesAllFieldsPass()
+    public void Part4_PeopleAreEnteredCorrectlyDifferentPerson_SuccessAllFieldsPass()
     {
         SampleData data = createSampleDataObject();
         IPerson person = data.People.
@@ -212,7 +212,7 @@ public class SampleDataTests
     }
 
     [TestMethod]
-    public void Part6_MethodeReturnsUniqueList_SuccesListMatches()
+    public void Part6_MethodeReturnsUniqueList_SuccessListMatches()
     {
         SampleData data = createSampleDataObject();
         string expectedList = data.GetAggregateSortedListOfStatesUsingCsvRows();
