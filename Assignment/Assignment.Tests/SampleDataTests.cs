@@ -211,5 +211,13 @@ public class SampleDataTests
         Assert.AreEqual<string>("Leathe", people.Last().LastName);
     }
 
-
+    [TestMethod]
+    public void Part6_MethodeReturnsUniqueList_SuccesListMatches()
+    {
+        SampleData data = createSampleDataObject();
+        string expectedList = data.GetAggregateSortedListOfStatesUsingCsvRows();
+        IEnumerable<IPerson> people = data.People;
+        string resultingList = data.GetAggregateListOfStatesGivenPeopleCollection(people);
+        Assert.AreEqual<string>(expectedList, resultingList);
+    }
 }
