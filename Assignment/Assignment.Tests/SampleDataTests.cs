@@ -116,7 +116,7 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         IPerson person = data.People.
-            Where(p => p.FirstName.Equals("Priscilla")).
+            Where(person => person.FirstName.Equals("Priscilla")).
             Single();
         Assert.AreEqual<string>("Priscilla", person.FirstName);
         Assert.AreEqual<string>("Jenyns", person.LastName);
@@ -132,7 +132,7 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         IPerson person = data.People.
-            Where(p => p.FirstName.Equals("Celestyna")).
+            Where(person => person.FirstName.Equals("Celestyna")).
             Single();
         Assert.AreEqual<string>("Celestyna", person.FirstName);
         Assert.AreEqual<string>("Robken", person.LastName);

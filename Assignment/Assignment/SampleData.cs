@@ -50,7 +50,6 @@ namespace Assignment
         public string GetAggregateListOfStatesGivenPeopleCollection(
             IEnumerable<IPerson> people)
         {
-            //System.Linq.Enumerable.Aggregate()
             List<string> states = people
                 .Select(person => (person.Address.State))
                 .Aggregate((states, next) => $"{states},{next}")
@@ -65,7 +64,7 @@ namespace Assignment
         public SampleData(string path)
         {
             CsvRows = CSVParser(path);
-            People = setPeople();
+            People = SetPeople();
         }
 
         private IEnumerable<string> CSVParser(string path)
@@ -73,7 +72,7 @@ namespace Assignment
             return File.ReadAllLines(path).Skip(1);
         }
 
-        private IEnumerable<IPerson> setPeople()
+        private IEnumerable<IPerson> SetPeople()
         {
             IEnumerable<IPerson> people = CsvRows.
                 OrderBy(place => place.Split(",")[6]).  //state
