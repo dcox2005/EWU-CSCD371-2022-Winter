@@ -37,7 +37,7 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         int count = Enumerable.Count(data.CsvRows);
-        Assert.AreEqual(50, count);
+        Assert.AreEqual<int>(50, count);
     }
 
     [TestMethod]
@@ -46,15 +46,15 @@ public class SampleDataTests
         SampleData data = createSampleDataObject();
         string row1 = data.CsvRows.First();
         string expectedRow1 = "1,Priscilla,Jenyns,pjenyns0@state.gov,7884 Corry Way,Helena,MT,70577";
-        Assert.AreEqual(expectedRow1, row1);
+        Assert.AreEqual<string>(expectedRow1, row1);
 
         string row37 = data.CsvRows.ElementAt(36);  //zero indexing
         string expectedRow37 = "37,Westley,Mesnard,wmesnard10@amazonaws.com,075 Pierstorff Road,Manchester,NH,66946";
-        Assert.AreEqual(expectedRow37, row37);
+        Assert.AreEqual<string>(expectedRow37, row37);
 
         string row50 = data.CsvRows.Last();
         string expectedLastRow = "50,Claudell,Leathe,cleathe1d@columbia.edu,30262 Steensland Way,Newport News,VA,87930";
-        Assert.AreEqual(expectedLastRow, row50);
+        Assert.AreEqual<string>(expectedLastRow, row50);
     }
 
     [TestMethod]
@@ -65,7 +65,7 @@ public class SampleDataTests
         int count = Enumerable.Count(states);
         Assert.IsTrue(count > 0);
         Assert.IsTrue(count < 50);
-        Assert.AreEqual(27, count);
+        Assert.AreEqual<int>(27, count);
     }
 
     [TestMethod]
@@ -73,25 +73,27 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         IEnumerable<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows();
+        string prevState = states.First();
 
-        bool isSorted = true;
-        string prevState = "";
-        foreach (string state in states)
-        {
-            if (state.Equals(states.ElementAt(0)))
-            { 
-                prevState = state;
-            }
-            else
-            {
-                if(prevState.CompareTo(state) > 0)
+        IEnumerable<string> results = states.Where
+            (
+                state =>
                 {
-                    isSorted = false;
-                }
-            }
-        }
+                    if(state.Equals(prevState))
+                    {
+                        return false;
+                    }
 
-        Assert.IsTrue(isSorted);
+                    if (prevState.CompareTo(state) > 0)
+                    {
+                        return true;
+                    }
+
+                    return false;
+                }
+            ).ToList();
+
+        Assert.AreEqual<int>(0, results.Count());
     }
 
     [TestMethod]
@@ -99,6 +101,84 @@ public class SampleDataTests
     {
         SampleData data = createSampleDataObject();
         string res = "AL,AZ,CA,DC,FL,GA,IN,KS,LA,MD,MN,MO,MT,NC,NE,NH,NV,NY,OR,PA,SC,TN,TX,UT,VA,WA,WV";
-        Assert.AreEqual(res, data.GetAggregateSortedListOfStatesUsingCsvRows());
+        Assert.AreEqual<string>(res, data.GetAggregateSortedListOfStatesUsingCsvRows());
     }
+
+    [TestMethod]
+    public void Part4_PropertyImplemented_SuccessPropertyNotNull()
+    {
+        SampleData data = createSampleDataObject();
+        Assert.IsNotNull(data.People);
+    }
+
+    [TestMethod]
+    public void Part4_PeopleAreEnteredCorrectly_SuccesAllFieldsPass()
+    {
+        SampleData data = createSampleDataObject();
+        IPerson person = data.People.
+            Where(p => p.FirstName.Equals("Priscilla")).
+            Single();
+        Assert.AreEqual<string>("Priscilla", person.FirstName);
+        Assert.AreEqual<string>("Jenyns", person.LastName);
+        Assert.AreEqual<string>("pjenyns0@state.gov", person.EmailAddress);
+        Assert.AreEqual<string>("MT", person.Address.State);
+        Assert.AreEqual<string>("Helena", person.Address.City);
+        Assert.AreEqual<string>("70577", person.Address.Zip);
+        Assert.AreEqual<string>("7884 Corry Way", person.Address.StreetAddress);
+    }
+
+    [TestMethod]
+    public void Part4_PeopleAreEnteredCorrectlyDifferentPerson_SuccesAllFieldsPass()
+    {
+        SampleData data = createSampleDataObject();
+        IPerson person = data.People.
+            Where(p => p.FirstName.Equals("Celestyna")).
+            Single();
+        Assert.AreEqual<string>("Celestyna", person.FirstName);
+        Assert.AreEqual<string>("Robken", person.LastName);
+        Assert.AreEqual<string>("crobken12@t.co", person.EmailAddress);
+        Assert.AreEqual<string>("TX", person.Address.State);
+        Assert.AreEqual<string>("San Antonio", person.Address.City);
+        Assert.AreEqual<string>("74488", person.Address.Zip);
+        Assert.AreEqual<string>("27 Moland Parkway", person.Address.StreetAddress);
+    }
+
+    [TestMethod]
+    public void Part4_PeopleAreSortedProperly_SuccessImproperResultsZero()
+    {
+        SampleData data = createSampleDataObject();
+        IEnumerable<IPerson> people = data.People;
+        IPerson prevPerson = people.First();
+
+        IEnumerable<IPerson> results = people.Where
+            (
+                person =>
+                {
+                    if (person.Equals(prevPerson))
+                    {
+                        return false;
+                    }
+
+                    if (person.Address.State.CompareTo(prevPerson.Address.State) <= 0)
+                    {
+                        if (person.Address.City.CompareTo(prevPerson.Address.City) <= 0)
+                        {
+                            if (person.Address.Zip.CompareTo(prevPerson.Address.Zip) < 0)
+                            {
+                                prevPerson = person;
+                                return true;
+                            }
+                        }
+                    }
+
+                    prevPerson = person;
+                    return false;
+                }
+
+            ).ToList();
+
+        Assert.AreEqual<int>(0, results.Count());
+    }
+
+
 }
