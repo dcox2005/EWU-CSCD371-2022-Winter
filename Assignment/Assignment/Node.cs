@@ -82,18 +82,14 @@ public class Node<TType>
         return false;
     }
 
-    public IEnumerable<Node<TType>> ReturnItems
+    public IEnumerable<Node<TType>> ReturnItems()
     {
-        get
+        Node<TType> currentNode = this;
+        do
         {
-            Node<TType> currentNode = this;
-            do
-            {
-                yield return currentNode._Value;
-                currentNode = currentNode.Next;
-            }while (currentNode != this);
-        }
-        
+            yield return currentNode;
+            currentNode = currentNode.Next;
+        } while (currentNode != this);
     }
 
     public IEnumerable<Node<TType>> ChildItems(int maximum)
