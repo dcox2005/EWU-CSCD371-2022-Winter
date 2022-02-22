@@ -83,21 +83,6 @@ public class Node<TType> : IEnumerable<Node<TType>>, IEnumerable
         return false;
     }
 
-    public IEnumerable<Node<TType>> ReturnItems()
-    {
-        Node<TType> currentNode = this;
-        do
-        {
-            yield return currentNode;
-            currentNode = currentNode.Next;
-        } while (currentNode != this);
-    }
-
-    public IEnumerable<Node<TType>> ChildItems(int maximum)
-    {
-        yield break;
-    }
-
     public IEnumerator<Node<TType>> GetEnumerator()
     {
         Node<TType> currentNode = this;
@@ -111,5 +96,17 @@ public class Node<TType> : IEnumerable<Node<TType>>, IEnumerable
     IEnumerator IEnumerable.GetEnumerator()
     {
         return this.GetEnumerator();
+    }
+
+    public IEnumerable<Node<TType>> ChildItems(int maximum)
+    {
+        Node<TType> currentNode = this;
+        int num = 0;
+        do
+        {
+            yield return currentNode;
+            currentNode = currentNode.Next;
+            num++;
+        }while(num < maximum);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment.Tests;
 
@@ -218,5 +220,14 @@ public class NodeTests
         Assert.IsTrue(correct2);
         Assert.IsTrue(correct3);
         Assert.IsTrue(correct4);
+    }
+
+    [TestMethod]
+    public void Part7_CheckChildItemsMethod()
+    {
+        Node<string> myNode = CreateNodeList();
+        IEnumerable<Node<string>> myNode2 = myNode.ChildItems(10);
+
+        Assert.AreEqual(10, myNode2.Count());
     }
 }
