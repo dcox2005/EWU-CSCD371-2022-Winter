@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Diagnostics;
 
 namespace Assignment.Tests;
 
@@ -183,6 +182,41 @@ public class NodeTests
     [TestMethod]
     public void Part7_ReturnAllItems()
     {
-        
+        Node<string> myNode = CreateNodeList();
+        bool correct1 = false;
+        bool correct2 = false;
+        bool correct3 = false;
+        bool correct4 = false;
+        bool enteredLoop = false;
+
+        int count = 0;
+        foreach (Node<string> node in myNode)
+        {
+            string? value = node.ToString();
+            count++;
+            if (count == 1)
+            {
+                correct1 = (value!.Equals("Value"));
+            }
+            else if (count == 2)
+            {
+                correct2 = (value!.Equals("Second Value"));
+            }
+            else if (count == 3)
+            {
+                correct3 = (value!.Equals("Third Value"));
+            }
+            else if (count == 4)
+            {
+                correct4 = (value!.Equals("Fourth Value"));
+            }
+            enteredLoop = true;
+        }
+
+        Assert.IsTrue(enteredLoop);
+        Assert.IsTrue(correct1);
+        Assert.IsTrue(correct2);
+        Assert.IsTrue(correct3);
+        Assert.IsTrue(correct4);
     }
 }

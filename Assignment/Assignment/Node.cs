@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Assignment;
 
-public class Node<TType>
+public class Node<TType> : IEnumerable<Node<TType>>, IEnumerable
 {
     private readonly TType? _Value;
     public Node<TType> Next
@@ -95,5 +96,20 @@ public class Node<TType>
     public IEnumerable<Node<TType>> ChildItems(int maximum)
     {
         yield break;
+    }
+
+    public IEnumerator<Node<TType>> GetEnumerator()
+    {
+        Node<TType> currentNode = this;
+        do
+        {
+            yield return currentNode;
+            currentNode = currentNode.Next;
+        } while (currentNode != this);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return this.GetEnumerator();
     }
 }
