@@ -1,8 +1,8 @@
-﻿# EWU-CSCD371-2021-Winter
+﻿# EWU-CSCD371-2022-Winter
 
 ## See [Docs](Docs)
 
-## Assignment 6
+## Assignment 7+8
 The purpose of this assignment is to write a simple HTML, CSS, and JavaScript page that uses events and styling to display jokes. Target modern browsers, no need for backwards compatibility.
 
 ## Reading
