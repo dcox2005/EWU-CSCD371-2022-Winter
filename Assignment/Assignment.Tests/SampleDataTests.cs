@@ -69,7 +69,7 @@ public class SampleDataTests
     }
 
     [TestMethod]
-    public void Part2_MethodReturnsSortedListOfStates_SuccessIsSorted()
+    public void Part2_MethodReturnsSortedListOfStates_SuccessUnsortedCountEqualsZero()
     {
         SampleData data = createSampleDataObject();
         IEnumerable<string> states = data.GetUniqueSortedListOfStatesGivenCsvRows();
@@ -130,6 +130,40 @@ public class SampleDataTests
         Assert.AreEqual<string>("Helena", person.Address.City);
         Assert.AreEqual<string>("70577", person.Address.Zip);
         Assert.AreEqual<string>("7884 Corry Way", person.Address.StreetAddress);
+    }
+
+    [TestMethod]
+    public void Part4_PeopleAreSortedProperly_SuccessUnsortedCountEqualsZero()
+    {
+        SampleData data = createSampleDataObject();
+        IEnumerable<IPerson> people = data.People;
+        IPerson prevPerson = people.First();
+
+        IEnumerable<IPerson> results = people.Where
+            (
+                person =>
+                {
+                    if (person.Equals(prevPerson))
+                    {
+                        return false;
+                    }
+
+                    if (prevPerson.Address.State.CompareTo(person.Address.State) > 0)
+                    {
+                        if (prevPerson.Address.City.CompareTo(person.Address.City) > 0)
+                        {
+                            if (prevPerson.Address.Zip.CompareTo(person.Address.Zip) > 0)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+
+                    return false;
+                }
+            ).ToList();
+
+        Assert.AreEqual<int>(0, results.Count());
     }
 
     [TestMethod]
