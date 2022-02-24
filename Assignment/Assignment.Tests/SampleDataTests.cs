@@ -97,6 +97,27 @@ public class SampleDataTests
     }
 
     [TestMethod]
+    public void Part2_HardCodedDataInput_SuccessStateCountEqualsOne()
+    {
+        string[] spokaneAddresses =
+        {
+            "",
+            "8,Joly,Scneider,jscneider7@pagesperso-orange.fr,53 Grim Point,Spokane,WA,99022",
+            "15,Phillida,Chastagnier,pchastagniere@reference.com,1 Rutledge Point,Spokane,WA,99021",
+            "19,Fayette,Dougherty,fdoughertyi@stanford.edu,6487 Pepper Wood Court,Spokane,WA,99021"
+        };
+
+        File.WriteAllLines("spokaneAddress.csv", spokaneAddresses);
+        string path = AppDomain.CurrentDomain.BaseDirectory;
+        path += "spokaneAddress.csv";
+        SampleData data = new SampleData(path);
+        File.Delete(path);
+
+        IEnumerable<string> address = data.GetUniqueSortedListOfStatesGivenCsvRows();
+        Assert.AreEqual<int>(1, address.Count());
+    }
+
+    [TestMethod]
     public void Part3_MethodReturnsUniqueCommaSeperatedList()
     {
         SampleData data = createSampleDataObject();
