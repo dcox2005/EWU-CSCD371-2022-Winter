@@ -30,3 +30,47 @@ button:hover {
     padding: 3px;
     background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
 }
+
+p.special{
+    font-size: 1.5em;
+}
+
+#Something{
+    color: red;
+}
+
+td, th{
+    border: 1px solid black;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    padding: 5px 10px;
+}
+
+table{
+    border-spacing: 0px;
+    width: 100%;
+}
+
+.name{
+    width: 20%;
+}
+
+.description{
+
+}
+
+.price{
+    width: 250px;
+}
+
+.text-right{
+    text-align: right;
+}
+
+tfoot{
+    background-color: lightgray;
+}
+
+tfoot tr th{
+    border-top: 5px double black;
+}

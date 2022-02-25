@@ -9,18 +9,24 @@
 </head>
 
 <body>
-    <div>
+    <div id="Something">
         <p style="font-weight: bold;">
             This is <span style="color:red;">some</span> text.
         </p>
+        <p class="special">
+            This is special text
+        </p>
+        <p class="special">
+            This is another special text
+        </p>
     </div>
     <div>
-        <button>
+        <button onclick="showName()">
             <img src="https://www.freeiconspng.com/thumbs/cursor-png/cursor-png-ico-icns-free-icon-download--icon100m-20.png"
                 alt="Meg" />
             Meg's <span>ABC</span> Button</button>
         <div>
-            <button>
+            <button id="mybutton">
                 <img class="medium"
                     src="https://www.freeiconspng.com/thumbs/cursor-png/cursor-png-ico-icns-free-icon-download--icon100m-20.png"
                     height="50" width="50" alt="Meg" />
@@ -31,6 +37,44 @@
                 height="50" width="50" alt="Meg" />
         </div>
     </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="name">Name</th>
+                <th class="description">Description</th>
+                <th class="price text-right">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Princess Bride BluRay DVD</td>
+                <td>NEW and IMPROVED HDR version of the classic!! For &lt; &euro;30!!</td>
+                <td class="text-right">&euro;29.99</td>
+            </tr>
+            <tr>
+                <td>Shrek 4</td>
+                <td>Lets re do this thing again</td>
+                <td class="text-right">$39.99</td>
+            </tr>
+            <tr>
+                <td>Home Alone 1</td>
+                <td>Bring home a true classic today</td>
+                <td class="text-right">$24.99</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2" class="text-right">Total</th>
+                <th class="text-right">$94.97</th>
+            </tr>
+        </tfoot>
+    </table>
+    <input type="text" value="text"/>
+    <textarea name="" ></textarea>
+    <script src="js/index.js"> 
+        
+    </script>
 </body>
 
 </html>
