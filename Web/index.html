@@ -3,11 +3,21 @@
     <head>
         <title>EWU Joke API</title>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="css/all.css">
         <link rel="stylesheet" href="css/site.css">
     </head>
     <body>
         <div class="EWU-banner">
             <h1>EWU</h1>
+            <div class="Menu">
+                <button onclick="menuDropdown()" class="Menu-button">Menu<i class="fa-solid fa-bars"></i></button>
+                <div id="menuDropdown" class="Menu-dropdown">
+                    <button>Writing’s on the wall.</button>
+                    <button>Raining cats and dogs.</button>
+                    <button>Bring home some bacon!</button>
+                    <button>For old time’s sake.</button>
+                </div>
+            </div> 
         </div>
         <div class="Header">
             <h1>The Joke Page</h1>
@@ -23,5 +33,6 @@
                 <h4>buttons will be here</h4>
             </div>
         </div>
+        <script src="js/index.js"></script>
     </body>
 </html>
