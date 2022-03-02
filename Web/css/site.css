@@ -5,7 +5,11 @@ body {
 
 .EWU-banner{
     border: 1px solid black;
-    background-color: #04AA6D;
+    background-color: black
+}
+
+.EWU-banner h1{
+    color: rgba(173,25,49,1);
 }
 
 .Header{
