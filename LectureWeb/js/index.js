@@ -34,3 +34,24 @@ axios({
     .catch(function (error) {
         console.log(error);
     });
+
+// function writePerson(){
+//     return function(){
+//         console.log("Hello World: " + person.getName() + " is " + person.age());
+//     }
+// }
+
+// function writeAPerson(){
+//     console.log("Hello World: " + person.getName() + " is " + person.age());
+// }
+
+// setTimeout(writeAPerson, 5000);     //don't use parenthesis. it only takes the return.
+// setTimeout(writePerson(), 5000);  
+
+function writePerson(){
+    console.log("Hello World: " + person.getName() + " is " + person.age());
+    setTimeout(writePerson, 5000); 
+}
+
+setTimeout(writePerson, 5000);
+console.log("this is a new line");
