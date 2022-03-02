@@ -2,6 +2,12 @@
 
 function menuDropdown() 
 {
+    // document.addEventListener('click', (e) => {
+    //     if (!e.target.matches('.Menu-button, .Menu-button *')) {
+    //       return;
+    //     }
+    //     console.log('It works!');
+    // });
     document.getElementById("menuDropdown").classList.toggle("Menu-dropdown-show");
 }
 

@@ -20,19 +20,19 @@ Just like when working as a software developer, the web will be your primary sou
 
 ### General
 - The project should look like the image below ❌✔
-- The project should have an index.html file ❌✔
-  - With an index.js file in a js folder ❌✔
-  - And a site.css file in a css folder (along with other css files) ❌✔
+- The project should have an index.html file ✔
+  - With an index.js file in a js folder ✔
+  - And a site.css file in a css folder (along with other css files) ✔
 - There should be a `<head>`
-  - With a favicon ❌✔
-  - And a title ❌✔
-- The `<body>` should use the middle 70% of the page ❌✔
+  - With a favicon ✔
+  - And a title ✔
+- The `<body>` should use the middle 70% of the page ✔
 
 ### Menu Bar
-- The page should have a title/menu bar ❌✔
-  - Use Font Awesome for the hamburger icon (https://fontawesome.com/start) ❌✔ 
-  - When clicked, the menu should appear under it ❌✔
-  - The menu should have four buttons with creative names (the buttons don't need to do anything) ❌✔
+- The page should have a title/menu bar ✔
+  - Use Font Awesome for the hamburger icon (https://fontawesome.com/start) ✔ 
+  - When clicked, the menu should appear under it ✔
+  - The menu should have four buttons with creative names (the buttons don't need to do anything) ✔
 
 ### Create a card with `<div>`s and CSS
 - Create a card from `<div>`s ❌✔
