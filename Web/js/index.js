@@ -6,9 +6,9 @@ function menuDropdown()
     //     if (!e.target.matches('.Menu-button, .Menu-button *')) {
     //       return;
     //     }
-    //     console.log('It works!');
     // });
     document.getElementById("menuDropdown").classList.toggle("Menu-dropdown-show");
+        console.log('It works!');
 }
 
 window.onclick = function(event) 
