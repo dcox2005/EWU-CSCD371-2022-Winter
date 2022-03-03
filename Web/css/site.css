@@ -69,9 +69,12 @@ body {
 
 .Joke-card-container{
     text-indent: .5em;
-    color: red;
+    
 }
-
+.Joke-card-container header{
+    background-color: rgba(211,211,211,1);
+}
+.
 .Joke-card-container p{
 
 }
