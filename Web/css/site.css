@@ -11,6 +11,7 @@ body {
 
 .EWU-banner h1{
     color: rgba(173,25,49,1);
+    margin: 0;
 }
 
 .Joke-header{
@@ -20,7 +21,7 @@ body {
 .Menu{
     position: relative;
     float: right;
-    
+    margin-top: 1em;
 }
 
 .Menu-button{
@@ -30,24 +31,26 @@ body {
 }
 
 .Menu-dropdown{
-    min-width: 160px;
+    min-width: 25%;
     display: none;
     position: absolute;
     overflow:auto;
     right: 0;
     border: solid .01em black;
     padding: .5em;
+    background: white;
 }
 
 .Menu-dropdown button{
     padding: 12px 16px;
     border: solid 4px red;
-    background: linear-gradient(90deg, lightblue, mediumblue, darkblue);
+    background: linear-gradient(90deg, rgb(2, 145, 133) 25%,rgb(73, 110, 230) 100%);
     display: block;
+    min-width: 100%;
 }
 
 .Menu-dropdown button:hover{
-    background: linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.5) 75%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(45deg, blue, green);
 }
 
 .Menu-dropdown-show {
@@ -70,11 +73,13 @@ body {
     text-indent: .5em;
 }
 .Joke-card-container header{
-    padding-top: 1px;
-    padding-bottom: 1px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background-color: rgba(211,211,211,1);
+}
+
+.Joke-card-container h2{
+    margin: 1px;
 }
 
 .Joke-card-container p{
