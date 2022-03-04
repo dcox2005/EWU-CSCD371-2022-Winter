@@ -6,7 +6,7 @@ body {
 .EWU-banner{
     text-indent: .5em;
     border: 1px solid black;
-    background-color: black
+    background-color: black;
 }
 
 .EWU-banner h1{
@@ -41,7 +41,6 @@ body {
     border: solid .01em black;
     padding: .5em;
     background: white;
-    /* z-index: 1; */
 }
 
 .Menu-dropdown button{
@@ -89,12 +88,29 @@ body {
 
 }
 
-.Joke-card-container a{
-
-}
-
 .Joke-card-container footer{
     border-top: solid 0.1em rgb(143, 129, 129);
     margin-bottom: .5em;
 }
 
+.Joke-card-container button{
+    margin-top: .3em;
+    background: linear-gradient(90deg, rgb(2, 145, 133) 25%,rgb(73, 110, 230) 100%);
+}
+
+.Joke-card-container button:hover{
+    background: linear-gradient(45deg, blue, green);
+}
+
+.Joke-link-button{
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    margin-top: .3em;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
