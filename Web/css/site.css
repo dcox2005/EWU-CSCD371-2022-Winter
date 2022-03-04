@@ -14,9 +14,7 @@ body {
 }
 
 .Joke-header{
-    border: 1px solid black;
-    border-right: 0;
-    border-left: 0;
+    border-bottom: 1px solid black;
 }
 
 .Menu{
