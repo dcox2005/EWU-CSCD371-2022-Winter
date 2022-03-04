@@ -33,13 +33,14 @@ body {
 }
 
 .Menu-dropdown{
-    min-width: 160px;
+    min-width: 25%;
     display: none;
     position: absolute;
     overflow:auto;
     right: 0;
     border: solid .01em black;
     padding: .5em;
+    background: white;
 }
 
 .Menu-dropdown button{
@@ -47,6 +48,7 @@ body {
     border: solid 4px red;
     background: linear-gradient(90deg, rgb(2, 145, 133) 25%,rgb(73, 110, 230) 100%);
     display: block;
+    min-width: 100%;
 }
 
 .Menu-dropdown button:hover{
