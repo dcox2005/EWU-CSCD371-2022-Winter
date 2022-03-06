@@ -61,3 +61,19 @@ function getJoke()
 }   
 
 window.onload = getJoke;
+
+var clicked = false;
+  
+function creativeButton1()
+{
+   if(clicked)
+   {
+      document.getElementsByTagName('body')[0].style.transform = 'rotate(180deg)';
+      clicked = false;
+   }
+   else
+   {
+      document.getElementsByTagName('body')[0].style.transform = 'rotate(0deg)';
+      clicked = true;
+   }
+}
