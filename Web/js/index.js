@@ -68,7 +68,7 @@ function getJoke()
 
 window.onload = getJoke;
 
-var clicked = false;
+var clicked = true;
   
 function creativeButton1()
 {
