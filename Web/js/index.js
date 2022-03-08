@@ -32,6 +32,8 @@ function getJoke()
       let type = response.data.type;
       // console.log(type);
       let placement = document.querySelector(".Joke");
+      let answerplace = document.querySelector(".Answer");
+      answerplace.style.visibility = 'hidden'
       if(type.includes("single", 0) )
       {
          let joke = response.data.joke
@@ -45,7 +47,6 @@ function getJoke()
          let answerplace = document.querySelector(".Answer");
          answerplace.style.visibility = 'hidden'
          answerplace.innerText = delivery;
-   
          setTimeout(punchLine, 4000);
       }
       else
