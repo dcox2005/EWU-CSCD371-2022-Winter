@@ -12,12 +12,6 @@ dropdownBtn.addEventListener('click',()=>{
    }
 })
 
-// function catAndDogs()
-// {
-//    let placement = document.querySelector(".snowflakes");
-//    placement.style.visibility = 'visible';
-// }
-
 function punchLine()
 {
    let answerplace = document.querySelector(".Answer");
