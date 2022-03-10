@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+
 public class Program
 {
     static int iterationCount = 0;
@@ -30,6 +32,13 @@ public class Program
             iterationCount++;
         }
         return iterationCount;
+    }
+
+    public int StartProcess()
+    {
+        Process process = Process.Start("ping", "google.com");
+        process.WaitForExit();
+        return process.ExitCode;
     }
 }
 
