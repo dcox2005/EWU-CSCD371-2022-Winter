@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -94,13 +95,28 @@ public class PingProcessTests
     [ExpectedException(typeof(AggregateException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping()
     {
-
+        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        cancellationTokenSource.Cancel();
+        Task<PingResult> task = Sut.RunAsync("localhost", cancellationTokenSource.Token);
+        PingResult result = task.Result;
     }
 
     [TestMethod]
     [ExpectedException(typeof(TaskCanceledException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrappingTaskCanceledException()
     {
+        try
+        {
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+            cancellationTokenSource.Cancel();
+            Task<PingResult> task = Sut.RunAsync("localhost", cancellationTokenSource.Token);
+            task.Wait();
+            PingResult result = task.Result;
+        }
+        catch(AggregateException ex)
+        {
+            ExceptionDispatchInfo.Capture(ex.Flatten().InnerException!).Throw();
+        }
         // Use exception.Flatten()
     }
 
