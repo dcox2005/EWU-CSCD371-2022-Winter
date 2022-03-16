@@ -79,23 +79,22 @@ public class PingProcessTests
     }
 
     [TestMethod]
-#pragma warning disable CS1998 // Remove this
     async public Task RunAsync_UsingTpl_Success()
     {
         // DO use async/await in this test.
-        PingResult result = default;
-
         // Test Sut.RunAsync("localhost");
+        PingResult result = default;
+        Task<PingResult> task = Sut.RunAsync("localhost");
+        result = await task;
         AssertValidPingOutput(result);
     }
-#pragma warning restore CS1998 // Remove this
 
 
     [TestMethod]
     [ExpectedException(typeof(AggregateException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping()
     {
-        
+
     }
 
     [TestMethod]
