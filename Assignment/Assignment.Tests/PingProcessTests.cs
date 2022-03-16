@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Assignment.Tests;
@@ -69,7 +70,10 @@ public class PingProcessTests
     {
         // Do NOT use async/await in this test.
         PingResult result = default;
-        Task<PingResult> task = Sut.RunAsync("localhost");
+        CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        Task<PingResult> task = Sut.RunAsync("localhost", cancellationTokenSource.Token);
+        cancellationTokenSource.Cancel();
+        task.Wait();
         result = task.Result;
         AssertValidPingOutput(result);
     }
