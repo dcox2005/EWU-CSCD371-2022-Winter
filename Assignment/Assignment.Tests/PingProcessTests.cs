@@ -90,7 +90,6 @@ public class PingProcessTests
         AssertValidPingOutput(result);
     }
 
-
     [TestMethod]
     [ExpectedException(typeof(AggregateException))]
     public void RunAsync_UsingTplWithCancellation_CatchAggregateExceptionWrapping()
@@ -123,9 +122,28 @@ public class PingProcessTests
     [TestMethod]
     async public Task RunAsync_MultipleHostAddresses_True()
     {
+        /*
+         * "
+         * Pinging DESKTOP-P6VBKRN[::1] with 32 bytes of data:
+         * Reply from ::1: time < 1ms
+         * Reply from::1: time < 1ms
+         * Reply from::1: time < 1ms
+         * Reply from::1: time < 1ms
+         * 
+         * Ping statistics for ::1:
+         * Packets: Sent = 4, Received = 4, Lost = 0(0 % loss),
+         * Approximate round trip times in milli - seconds:
+         * Minimum = 0ms, Maximum = 0ms, Average = 0ms
+         * "
+         * 12 lines * 4 = 48 lines total with empty lines
+         * 10 lines * 4 = 40 if starting and ending new lines cleaned up.
+         * need to clean up using trim. probably in multiple spots.
+         * 
+         */
+         
         // Pseudo Code - don't trust it!!!
         string[] hostNames = new string[] { "localhost", "localhost", "localhost", "localhost" };
-        int expectedLineCount = PingOutputLikeExpression.Split(Environment.NewLine).Length*hostNames.Length;
+        int expectedLineCount = PingOutputLikeExpression.Split(Environment.NewLine).Length * hostNames.Length;
         PingResult result = await Sut.RunAsync(hostNames);
         int? lineCount = result.StdOutput?.Split(Environment.NewLine).Length;
         Assert.AreEqual(expectedLineCount, lineCount);
