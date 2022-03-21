@@ -67,6 +67,7 @@ public class PingProcess
         await task;
         throw new NotImplementedException();*/
         Task<PingResult> task = Task.Factory.StartNew(() => Run(hostNameOrAddress), cancellationToken);
+        await task;
         return task.Result;
     }
 
