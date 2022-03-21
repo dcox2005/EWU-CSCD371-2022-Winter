@@ -153,12 +153,9 @@ public class PingProcessTests
 
     async public Task RunLongRunningAsync_UsingTpl_Success()
     {
-        //PingResult result = default;
-        // Test Sut.RunLongRunningAsync("localhost");
         PingResult result = await Sut.RunLongRunningAsync("localhost");
         AssertValidPingOutput(result);
     }
-
 
     [TestMethod]
     public void StringBuilderAppendLine_InParallel_IsNotThreadSafe()
